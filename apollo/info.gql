@@ -1,0 +1,10 @@
+query {
+  viewer { 
+    avatarUrl,
+    login,
+    location,
+    isDeveloperProgramMember,
+    name,
+    resourcePath,
+  }
+}

@@ -3,11 +3,11 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { useQuery } from '@apollo/client'
 
-import countries from '../apollo/countries.gql'
+import info from '../apollo/info.gql'
 import styles from '../styles/Home.module.css'
 
 const Home: NextPage = () => {
-  const {loading, data} = useQuery(countries)
+  const {loading, data} = useQuery(info)
 
   if(loading) {
     return <>loading...</>
