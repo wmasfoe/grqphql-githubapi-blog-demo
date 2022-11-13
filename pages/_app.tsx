@@ -15,7 +15,8 @@ const authLink = setContext((_, { headers }) => ({
     authorization: token ? `Bearer ${token}` : "",
   }
 }))
-const client = new ApolloClient({
+export const client = new ApolloClient({
+  ssrMode: true,
   cache: new InMemoryCache(),
   connectToDevTools: true,
   link: authLink.concat(httpLink)
