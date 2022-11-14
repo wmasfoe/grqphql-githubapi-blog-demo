@@ -9,7 +9,7 @@ import React from 'react'
 import styles from '../styles/Home.module.css'
 import { client, queryOwnerInfo } from '../apollo'
 
-export const getStaticProps: GetStaticProps<{}> = async (ctx: GetStaticPropsContext) => {
+const getStaticProps: GetStaticProps<{}> = async (ctx: GetStaticPropsContext) => {
   const { data } = await client.query({query: queryOwnerInfo})
   return {
     props: {
