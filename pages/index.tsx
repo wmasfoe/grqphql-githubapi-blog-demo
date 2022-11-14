@@ -1,7 +1,7 @@
 import type { NextPage, GetServerSideProps } from 'next'
 import Head from 'next/head'
-import { useQuery, gql } from '@apollo/client'
-import { client } from './_app'
+import { gql } from '@apollo/client'
+import { client } from '../apollo/client'
 import info from '../apollo/info.gql'
 import styles from '../styles/Home.module.css'
 
