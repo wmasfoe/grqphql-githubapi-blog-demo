@@ -17,6 +17,8 @@ export const getStaticProps: GetStaticProps<{}> = async (ctx: GetStaticPropsCont
     props: {
       info: data?.viewer ? {...(data.viewer)} : data
     },
+    // ISR
+    revalidate: 1000 * 60 * 60 * 24 // 一天更新一次
   }
 }
 
