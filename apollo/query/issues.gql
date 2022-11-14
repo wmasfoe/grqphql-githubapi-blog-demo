@@ -1,0 +1,28 @@
+query ($first: Int!, $name: String!, $owner: String!) {
+  repository(name: $name, owner: $owner) {
+    name
+    url
+    issues(first: $first) {
+      edges {
+        node {
+          id
+          title
+          url
+          labels {
+            edges {
+              node {
+                id
+                name
+                color
+              }
+            }
+          }
+          titleHTML
+          bodyHTML
+          createdAt
+          updatedAt
+        }
+      }
+    }
+  }
+}
