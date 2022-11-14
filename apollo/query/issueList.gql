@@ -1,0 +1,23 @@
+# 获取 issue 列表
+query ($first: Int!, $name: String!, $owner: String!) {
+  repository(name: $name, owner: $owner) {
+    issues(first: $first) {
+      nodes {
+        id
+        title
+        url
+        number
+        labels {
+          nodes {
+            id
+            name
+            color
+          }
+        }
+        createdAt
+        updatedAt
+      }
+      totalCount
+    }
+  }
+}

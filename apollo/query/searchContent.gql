@@ -1,0 +1,15 @@
+# 搜 blog 仓库中的关键字
+query {
+  search(query:"${keyword} repo:wmasfoe/blog", type: ISSUE, first: 10) {
+    issueCount
+    nodes{
+      ... on Issue {
+        title
+        id
+        number
+        bodyHTML
+        updatedAt
+      }
+    }
+  }
+}

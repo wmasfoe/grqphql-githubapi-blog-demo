@@ -1,0 +1,9 @@
+query($postId: Int!, $owner: String!, $repoName: String!) {
+  repository(owner:$owner, name: $repoName) {
+    issue(number: $postId) {
+      title
+      updatedAt
+      bodyHTML
+    }
+  }
+}
