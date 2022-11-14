@@ -4,9 +4,8 @@ import {
   GetStaticPropsContext,
 } from 'next'
 import Head from 'next/head'
-import React, { useContext } from 'react'
-import { ConfigContext, ConfigType } from './_app'
-import useInfo from '../hook/useInfo'
+import React from 'react'
+import config from '../config'
 import styles from '../styles/Home.module.css'
 import { client } from '../apollo/client'
 import info from '../apollo/info.gql'
@@ -23,7 +22,6 @@ export const getStaticProps: GetStaticProps<{}> = async (ctx: GetStaticPropsCont
 }
 
 const Home: NextPage = (props: any) => {
-  const config = useContext<ConfigType>(ConfigContext);
   return (
     <div className={styles.container}>
       <Head>
