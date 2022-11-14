@@ -6,13 +6,11 @@ import {
 import Link from 'next/link'
 import Head from 'next/head'
 import React from 'react'
-import config from '../config'
 import styles from '../styles/Home.module.css'
-import { client } from '../apollo/client'
-import info from '../apollo/info.gql'
+import { client, queryOwnerInfo } from '../apollo'
 
 export const getStaticProps: GetStaticProps<{}> = async (ctx: GetStaticPropsContext) => {
-  const { data } = await client.query({query: info})
+  const { data } = await client.query({query: queryOwnerInfo})
   return {
     props: {
       info: data?.viewer ? {...(data.viewer)} : data
@@ -23,6 +21,7 @@ export const getStaticProps: GetStaticProps<{}> = async (ctx: GetStaticPropsCont
 }
 
 const Home: NextPage = (props: any) => {
+  console.log(props);
   return (
     <div className={styles.container}>
       <Head>
