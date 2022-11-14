@@ -1,7 +1,7 @@
 # 获取文章数量
-query ($first: Int!, $name: String!, $owner: String!) {
+query ($name: String!, $owner: String!) {
   repository(name: $name, owner: $owner) {
-    issues(first: $first, filterBy: { states: CLOSED }) {
+    issues(first: 1) {
       totalCount
     }
   }
