@@ -2,6 +2,10 @@ type BaseConfigType = {
   siteUrl: string
   title: string
   pageInfo: Object
+  githubConfig: {
+    name: string
+    repo: string
+  }
 }
 type PConfigType = {
   friendLink: string[]
@@ -20,6 +24,10 @@ const config: ConfigType = {
     'about': {
       title: 'about-title'
     }
+  },
+  githubConfig: {
+    name: 'wmasfoe',
+    repo: 'blog'
   }
 }
 
