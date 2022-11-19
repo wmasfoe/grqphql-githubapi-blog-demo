@@ -22,7 +22,6 @@ const nextConfig = {
         ],
       }
     // }
-    console.dir('config === ', config.module);
     return config
   },
 }
