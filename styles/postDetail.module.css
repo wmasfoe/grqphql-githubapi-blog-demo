@@ -1,0 +1,11 @@
+.post-wrapper {
+  margin: 0 auto;
+  max-width: 900px;
+}
+.post-title {
+  width: 900px;
+  margin: 0 auto 50px;
+  padding: 50px 0 0 0;
+  text-align: left;
+  filter: invert(100%);
+}
