@@ -4,10 +4,8 @@ import {
   GetStaticProps
 } from 'next'
 import Head from 'next/head'
-import React, { useEffect, useRef, MutableRefObject } from 'react'
+import React from 'react'
 import { client, queryPostCount, queryPostDetail } from '../../apollo'
-import config from '../../config'
-import 'github-markdown-css'
 import styles from './../../styles/postDetail.module.css'
 
 export const getStaticPaths: GetStaticPaths<any> = async () => {
@@ -48,18 +46,9 @@ export const getStaticProps: GetStaticProps<{}> = async ({params}) => {
 
 const Posts: NextPage = (props: any) => {
   const articleInfo = props.data.repository.issue
-  const postBodyRef = useRef<HTMLDivElement | null>(null);
-  const titleRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    if(postBodyRef.current === null || titleRef.current === null) return
-    const bgColor = getComputedStyle(postBodyRef.current).backgroundColor
-    titleRef.current.style.backgroundColor = bgColor
-    document.documentElement.style.backgroundColor = bgColor
-  }, [])
 
   return (
-    <div ref={titleRef}>
+    <div>
       <Head>
         <title>{articleInfo.title}</title>
         <meta name="description" content={articleInfo.title} />
@@ -67,7 +56,7 @@ const Posts: NextPage = (props: any) => {
       </Head>
       <h1 className={styles['post-title']}>{articleInfo.title}</h1>
       <article>
-        <div ref={postBodyRef} className={`markdown-body ${styles['post-wrapper']}`} dangerouslySetInnerHTML={{__html: articleInfo.bodyHTML}}></div>
+        <div className={`markdown-body ${styles['post-wrapper']}`} dangerouslySetInnerHTML={{__html: articleInfo.bodyHTML}}></div>
       </article>
     </div>
   )

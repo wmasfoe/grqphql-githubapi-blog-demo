@@ -5,6 +5,7 @@ import React from 'react'
 import { client } from '../apollo/client'
 import config from '../config'
 export type { ConfigType } from '../config'
+import '../public/github-markdown-css.css'
 
 export const ConfigContext = React.createContext<any>(Symbol('config'))
 
